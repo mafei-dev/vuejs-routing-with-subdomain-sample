@@ -1,12 +1,17 @@
 <template>
     <div class="container">
         <div class="col-6" style="margin: auto">
+            <p>hint :
+                admin username is admin
+                cashier username is cashier
+                password - Any
+            </p>
             <form @submit.prevent="login">
                 <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="email" v-model="loginData.username" class="form-control" id="staticEmail"
-                               placeholder="email">
+                        <input type="text" v-model="loginData.username" class="form-control" id="staticEmail"
+                               placeholder="username">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -40,7 +45,11 @@
         },
         methods: {
             login() {
-                window.location = "admin";
+                if (this.username.startsWith("admin")) {
+                    window.location.href = "admin";
+                } else if (this.username.startsWith("cashier")) {
+                    window.location.href = "cashier";
+                }
             }
         }
     }
