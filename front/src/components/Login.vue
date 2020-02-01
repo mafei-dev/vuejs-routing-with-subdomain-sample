@@ -45,9 +45,9 @@
         },
         methods: {
             login() {
-                if (this.username.startsWith("admin")) {
+                if (this.loginData.username.startsWith("admin")) {
                     window.location.href = "admin";
-                } else if (this.username.startsWith("cashier")) {
+                } else if (this.loginData.username.startsWith("cashier")) {
                     window.location.href = "cashier";
                 }
             }
