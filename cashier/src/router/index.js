@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: 'cashier',
+        path: '/cashier',
         name: 'dashboard',
         component: CashierDashboard
     },
