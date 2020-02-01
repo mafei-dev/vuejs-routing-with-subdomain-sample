@@ -1,15 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import CashierDashboard from "../views/CashierDashboard";
+import NotFound from "../views/NotFound";
 
 Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/',
+        path: 'cashier',
         name: 'dashboard',
         component: CashierDashboard
-    }
+    },
+    {
+        path: '*',
+        name: 'NotFound',
+        component: NotFound
+    },
 ]
 
 const router = new VueRouter({
