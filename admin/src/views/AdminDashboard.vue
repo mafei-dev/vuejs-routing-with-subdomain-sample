@@ -2,7 +2,7 @@
     <div>
         <Nav></Nav>
         <Body></Body>
-        <router-link to="admin/add-user">Add user</router-link>
+        <router-link to="add-user">Add user</router-link>
         <router-view></router-view>
     </div>
 </template>
