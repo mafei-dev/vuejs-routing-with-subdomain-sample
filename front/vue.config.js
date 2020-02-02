@@ -3,5 +3,6 @@ module.exports = {
         // ? "/var/www/html/admin/dist" /*if you want you can change*/
         ? __dirname + "/dist"
         : '/dist',
-    publicPath: "/"
+    publicPath: "/",
+
 }
