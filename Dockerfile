@@ -29,10 +29,11 @@ RUN npm run build
 
 # production stage
 FROM nginx:stable-alpine as production-stage
-RUN apt-get update && apt-get install git-core
+RUN apk update && apk add bash
 COPY --from=build-stage-front /app/dist /var/www/html/front/dist
 COPY --from=build-stage-admin /app/dist /var/www/html/admin/dist
 COPY --from=build-stage-cashier /app/dist /var/www/html/cashier/dist
-COPY mafei.dev.conf /etc/nginx/nginx.conf
+RUN rm /etc/nginx/conf.d/default.conf
+COPY mafei.dev.conf /etc/nginx/conf.d/mafei.dev.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
