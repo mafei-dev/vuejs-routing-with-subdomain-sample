@@ -3,7 +3,7 @@ FROM node:lts-alpine as build-stage-front
 WORKDIR /app
 COPY ./front/package*.json ./
 RUN npm install
-COPY . .
+COPY ./front .
 ENV NODE_ENV=production
 RUN npm run build
 
@@ -12,7 +12,7 @@ FROM node:lts-alpine as build-stage-admin
 WORKDIR /app
 COPY ./admin/package*.json ./
 RUN npm install
-COPY . .
+COPY ./admin .
 ENV NODE_ENV=production
 RUN npm run build
 
@@ -21,7 +21,7 @@ FROM node:lts-alpine as build-stage-cashier
 WORKDIR /app
 COPY ./cashier/package*.json ./
 RUN npm install
-COPY . .
+COPY ./cashier .
 ENV NODE_ENV=production
 RUN npm run build
 
