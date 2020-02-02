@@ -30,9 +30,9 @@ RUN npm run build
 # production stage
 FROM nginx:stable-alpine as production-stage
 RUN apk update && apk add bash
-COPY --from=build-stage-front /app/dist /var/www/html/front
-COPY --from=build-stage-admin /app/dist /var/www/html/admin
-COPY --from=build-stage-cashier /app/dist /var/www/html/cashier
+COPY --from=build-stage-front /app/dist /var/www/html/front/dist
+COPY --from=build-stage-admin /app/dist /var/www/html/admin/dist
+COPY --from=build-stage-cashier /app/dist /var/www/html/cashier/dist
 COPY mafei.dev.conf /etc/nginx/nginx.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
