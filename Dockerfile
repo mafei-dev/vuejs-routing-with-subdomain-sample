@@ -29,7 +29,7 @@ RUN npm run build
 
 # production stage
 FROM nginx:stable-alpine as production-stage
-RUN apk update && apk add bash
+RUN apt-get update && apt-get install git-core
 COPY --from=build-stage-front /app/dist /var/www/html/front/dist
 COPY --from=build-stage-admin /app/dist /var/www/html/admin/dist
 COPY --from=build-stage-cashier /app/dist /var/www/html/cashier/dist
